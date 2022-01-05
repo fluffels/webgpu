@@ -125,10 +125,19 @@ window.onload = async () => {
         const vertex: GPUVertexState = {
             buffers: [ vertexLayout ],
             module: module,
-            entryPoint: "vsMain"
+            entryPoint: "vsMain",
+        };
+        const target: GPUColorTargetState = {
+            format: "bgra8unorm",
+        }
+        const fragment: GPUFragmentState = {
+            entryPoint: "fsMain",
+            module,
+            targets: [target],
         };
         const descriptor: GPURenderPipelineDescriptor = {
-            vertex
+            vertex,
+            fragment
         };
         pipeline = gpu.createRenderPipeline(descriptor);
     }
@@ -147,6 +156,10 @@ window.onload = async () => {
             colorAttachments: [colorAttachment]
         };
         let pass = encoder.beginRenderPass(descriptor);
+
+        pass.setPipeline(pipeline);
+        pass.setVertexBuffer(0, vertexBuffer, 0, vertexBufferSize);
+        pass.draw(3, 1, 0, 0);
 
         pass.endPass();
         let cmds = encoder.finish();
