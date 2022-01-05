@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "strictPropertyInitialization": true,
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "target": "es2016",
+        "allowJs": true,
+        "lib": [
+            "dom",
+            "es2016",
+        ],
+        "sourceMap": true,
+        "typeRoots": [
+            "./node_modules/@webgpu/types",
+            "./node_modules/@types"
+        ]     
+    },
+    "files": [
+        "src/main.ts"
+    ],
+    "include": [
+        "code/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

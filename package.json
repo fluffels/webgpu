@@ -1,0 +1,20 @@
+{
+  "author": "Jan CW Kroeze",
+  "name": "webgpu",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack --mode=production",
+    "dev": "npx webpack --mode=development --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0"
+  },
+  "devDependencies": {
+    "@webgpu/types": "^0.1.9",
+    "ts-loader": "^9.2.6",
+    "webpack-cli": "^4.9.1"
+  }
+}
